@@ -18,3 +18,11 @@
   view-->client: "html response of bookmakrs"
   client-->client: "renders html"
   client-->user: "displays html"
+
+
+##DataBase set up
+ - connect to psql
+ - CREATE DATABASE "bookmarks";
+ - \c "bookmarks";
+ - CREATE TABLE bookmarks (id SERIAL PRIMARY KEY, url VARCHAR(60));
+ - 
