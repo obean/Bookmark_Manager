@@ -1,6 +1,8 @@
-feature 'testing our web app is working' do
-  scenario 'root page shows hello world' do
-    visit('/')
-    expect(page).to have_content 'Hello world'
+feature 'viewing bookmarks' do
+  scenario '/bookmarks shows a list of bookmarks' do
+    visit('/bookmarks')
+    expect(page).to have_content "www.google.com"
+    expect(page).to have_content "www.youtube.com"
+    expect(page).to have_content "www.reddit.com"
   end
 end
