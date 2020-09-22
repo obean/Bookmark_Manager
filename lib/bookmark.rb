@@ -11,6 +11,10 @@ class Bookmark
   def self.add_bookmark(url)
     set_environment.exec("INSERT INTO bookmarks (url) VALUES ('#{url}');")
   end
+
+  def self.delete_bookmark(website)
+    set_environment.exec("DELETE FROM bookmarks WHERE url LIKE '%#{website}%'")
+  end
   
   def self.set_environment
     if ENV['ENVIRONMENT'] == 'test'

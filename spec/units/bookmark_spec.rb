@@ -14,3 +14,11 @@ describe '.add_bookmark' do
     expect(Bookmark.all).to include 'http://www.github.com'
   end
 end
+
+describe '.delete_bookmark' do 
+  it "deletes a bookmark from the array" do
+    setup_test_database
+    Bookmark.delete_bookmark("google")
+    expect(Bookmark.all).not_to include "http://www.google.com"
+  end
+end

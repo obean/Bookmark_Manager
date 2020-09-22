@@ -21,3 +21,12 @@ feature 'add bookmarks' do
     expect(page).to have_content 'http//www.github.com'
   end
 end
+
+feature 'delete bookmarks' do
+  scenario "deleting a bookmark" do
+    visit '/bookmarks' 
+    fill_in 'delete_url', with: "google"
+    click_button 'Delete'
+    expect(page).not_to have_content "http://www.google.com"
+  end
+end
