@@ -10,7 +10,7 @@ end
 describe '.add_bookmark' do
   it 'adds a new bookmark to the array' do
     setup_test_database
-    Bookmark.add_bookmark('http://www.gitbhub.com')
-    expect(Bookmark.all).to include 'http://www.gitbhub.com'
+    Bookmark.add_bookmark('http://www.github.com')
+    expect(Bookmark.all).to include 'http://www.github.com'
   end
 end
