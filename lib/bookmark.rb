@@ -13,14 +13,19 @@ class Bookmark
   end
 
   def self.delete_bookmark(website)
-    set_environment.exec("DELETE FROM bookmarks WHERE url LIKE '%#{website}%'")
+    set_environment.exec("DELETE FROM bookmarks WHERE url LIKE '%#{website}%';")
   end
+
+  def self.update(old, new)
+    set_environment.exec("UPDATE bookmarks SET url = '#{new}' WHERE url LIKE '%#{old}%';")
+  end
+
   
   def self.set_environment
     if ENV['ENVIRONMENT'] == 'test'
       connection = PG.connect(dbname: 'bookmark_manager_test')
     else
-      connection = PG.connect(dbname: 'bookmark-manager')#when we get an error on yours its an underscore
+      connection = PG.connect(dbname: 'bookmark_manager')#when we get an error on yours its an underscore
     end
   end
 

@@ -28,5 +28,18 @@ feature 'delete bookmarks' do
     fill_in 'delete_url', with: "google"
     click_button 'Delete'
     expect(page).not_to have_content "http://www.google.com"
+    expect(page).to have_content 'http://www.makersacademy.com'
+    expect(page).to have_content 'http://www.destroyallsoftware.com'
+  end
+end
+
+feature 'update bookmarks' do
+  scenario "updating a bookmark" do
+    visit '/bookmarks' 
+    fill_in 'old_url', with: "google"
+    fill_in 'new_url', with: "http://www.bbc.co.uk"
+    click_button 'Update'
+    expect(page).not_to have_content "http://www.google.com"
+    expect(page).to have_content 'http://www.bbc.co.uk'
   end
 end

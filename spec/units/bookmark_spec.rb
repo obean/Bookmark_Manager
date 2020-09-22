@@ -22,3 +22,15 @@ describe '.delete_bookmark' do
     expect(Bookmark.all).not_to include "http://www.google.com"
   end
 end
+
+describe '.update_bookmark' do
+  it 'changes the bookmark url' do
+    setup_test_database
+    Bookmark.update("google", "http://www.bbc.co.uk")
+    expect(Bookmark.all).not_to include "http://www.google.com"
+    expect(Bookmark.all).to include "http://www.bbc.co.uk"
+  end
+end
+
+
+
