@@ -1,17 +1,23 @@
 # frozen_string_literal: true
 
+require 'pg'
+
 feature 'viewing bookmarks' do
   scenario '/bookmarks shows a list of bookmarks' do
-    connection = PG.connect(dbname: 'bookmark_manager_test')
-
-      connection.exec("INSERT INTO bookmarks VALUES(1, 'http://www.makersacademy.com')");
-      connection.exec("INSERT INTO bookmarks VALUES(2, 'http://www.destroyallsoftware.com')");
-      connection.exec("INSERT INTO bookmarks VALUES(3, 'http://www.google.com')");
 
       visit('/bookmarks')
 
       expect(page).to have_content 'http://www.makersacademy.com'
       expect(page).to have_content 'http://www.destroyallsoftware.com'
       expect(page).to have_content 'http://www.google.com'
+  end
+end
+
+feature 'add bookmarks' do
+  scenario 'adding a new bookmark' do
+    visit '/'
+    fill_in 'url', with: 'http//www.github.com'
+    click_button 'Add'
+    expect(page).to have_content 'http//www.github.com added'
   end
 end

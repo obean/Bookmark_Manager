@@ -3,6 +3,10 @@
   so that I can view my bookmarks
   I want the program to show me a list of bookmarks
 
+  as a user
+  so that I can save my favourites
+  I want to be able to add new bookmarks
+
   #Domain model for above user story
     alias user
   alias client
