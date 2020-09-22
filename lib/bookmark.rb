@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 require 'pg'
 class Bookmark
-  BOOKMARKS = ['www.google.com', 'www.reddit.com', 'www.youtube.com'].freeze
+  
 
   def self.all
     if ENV['ENVIRONMENT'] == 'test'
@@ -13,5 +13,8 @@ class Bookmark
     table.map {|bookmark| bookmark['url']}
   end
 
-  
+  def self.add_bookmark(url)
+    # bookmarks << url
+  end
+
 end
