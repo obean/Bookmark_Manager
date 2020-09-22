@@ -5,7 +5,7 @@ require_relative './lib/bookmark'
 
 class BookmarkManager < Sinatra::Base
   get '/bookmarks' do
-    @bookmark = Bookmark.new
+    p ENV
     erb(:bookmark)
   end
 
