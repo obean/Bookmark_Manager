@@ -15,9 +15,9 @@ end
 
 feature 'add bookmarks' do
   scenario 'adding a new bookmark' do
-    visit '/'
+    visit '/bookmarks'
     fill_in 'url', with: 'http//www.github.com'
     click_button 'Add'
-    expect(page).to have_content 'http//www.github.com added'
+    expect(page).to have_content 'http//www.github.com'
   end
 end
